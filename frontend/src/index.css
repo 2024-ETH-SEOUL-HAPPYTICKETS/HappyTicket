@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#root{
+    background: rgba(7, 0, 19, 0.9);
+}

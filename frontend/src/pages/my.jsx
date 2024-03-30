@@ -14,7 +14,7 @@ const My = () => {
   return (
     <div className="bg-gradient-to-br from-black to-indigo-900 w-[480px] h-screen mx-auto flex flex-col text-white px-4">
       <Link className="mt-4" to="/">
-        back
+        <img></img>
       </Link>
       <div className="mt-4 mb-12 flex ">
         <CgProfile size="60" />

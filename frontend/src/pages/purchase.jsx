@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import backImg from "../assets/images/left-arrow.png";
 
 import concertImg from "../assets/images/taylor-eras.png";
 import { useState } from "react";
@@ -18,10 +19,11 @@ const Purchase = () => {
 
   return (
     <div className="relative font-bold bg-gradient-to-br from-black to-indigo-900 w-[480px] h-screen mx-auto flex flex-col text-white px-4">
-      <Link className="mt-4" to="/">
-        back
+      <Link className="mt-4 flex items-center" to="/">
+        <img src={backImg} className="w-7 h-7"></img>
+        <p className="text-2xl ml-2">BACK</p>
       </Link>
-      <div className="mt-4 flex flex-col">
+      <div className="mt-12 flex flex-col">
         <div className="bg-red-100 h-[240px] rounded-3xl relative">
           <img
             className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"

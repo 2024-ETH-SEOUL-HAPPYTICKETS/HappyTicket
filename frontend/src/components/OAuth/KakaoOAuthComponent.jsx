@@ -19,7 +19,7 @@ const KakaoOAuthComponent = () => {
     <img
       src={kakao}
       alt="kakao_icon"
-      className="cursor-pointer  w-16 place-self-end mx-4 "
+      className="cursor-pointer mr-4"
       onClick={handleLogin}
     ></img>
   );
