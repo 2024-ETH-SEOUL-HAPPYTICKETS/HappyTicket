@@ -2,14 +2,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import My from "./pages/my";
 import Purchase from "./pages/purchase";
+import Layout from "./Layout";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="my" element={<My />} />
-        <Route path="purchase" element={<Purchase />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="my" element={<My />} />
+          <Route path="purchase" element={<Purchase />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

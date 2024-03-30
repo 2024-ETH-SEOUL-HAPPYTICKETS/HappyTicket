@@ -8,7 +8,11 @@ const Purchase = () => {
       </Link>
       <div className="mt-4 flex flex-col">
         <div className="bg-red-100 h-[240px] rounded-xl relative">
-          <img src={`../../public/images/taylor-eras.png`} alt="taylor swift" />
+          <img
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src={`../../public/images/taylor-eras.png`}
+            alt="taylor swift"
+          />
         </div>
         <div className="mt-4 place-self-center text-3xl">
           Taylor Swift The Eras Tour
