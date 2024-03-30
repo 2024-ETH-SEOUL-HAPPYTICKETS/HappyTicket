@@ -1,16 +1,33 @@
 import { Link } from "react-router-dom";
 
+import concertImg from "../assets/images/taylor-eras.png";
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+
 const Purchase = () => {
+  const { userName, setUserName, nftIds, setNftIds, newNft } =
+    useOutletContext();
+
+  const [ticketCount, setTicketCount] = useState(1);
+  const [isClicked, setIsClicked] = useState(0);
+
+  //구매하기 눌렀을 때 표 1)소유자인지 검증, 2)최초 구매자인지 검증
+  const onClickPurchase = async () => {
+    setIsClicked(1);
+    console.log("is owner of NFT");
+    console.log("is first buyer of NFT");
+  };
+
   return (
-    <div className="font-bold bg-gradient-to-br from-black to-indigo-900 w-[480px] h-screen mx-auto flex flex-col text-white px-4">
+    <div className="relative font-bold bg-gradient-to-br from-black to-indigo-900 w-[480px] h-screen mx-auto flex flex-col text-white px-4">
       <Link className="mt-4" to="/">
         back
       </Link>
       <div className="mt-4 flex flex-col">
-        <div className="bg-red-100 h-[240px] rounded-xl relative">
+        <div className="bg-red-100 h-[240px] rounded-3xl relative">
           <img
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            src={`../../public/images/taylor-eras.png`}
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
+            src={concertImg}
             alt="taylor swift"
           />
         </div>
@@ -18,27 +35,55 @@ const Purchase = () => {
           Taylor Swift The Eras Tour
         </div>
       </div>
-      <div className="mt-36">
-        <div className="flex justify-between">
-          <div>Initial Buyer</div>
-          <div>Vitalik Buterin</div>
-        </div>
-        <div className="flex justify-between mt-4">
-          <div>Number of Tickets</div>
-          <div className="flex">
-            <div className="bg-slate-100 w-6 h-6 rounded-full text-black text-center mr-4">
-              -
-            </div>
-            <div>1</div>
-            <div className="bg-slate-100 w-6 h-6 rounded-full text-black text-center ml-4">
-              +
+      {isClicked == 1 ? (
+        <>
+          <div className="mt-36 mb-36">
+            <div className="flex justify-between">
+              <div>{userName}</div>
+              <div>purchased {ticketCount} ticket(s) successful</div>
             </div>
           </div>
-        </div>
-      </div>
-      <button className="mt-24 bg-black border transition hover:-translate-y-1 hover:bg-white hover:text-black border-white px-6 py-3 mt-4 mr-2 text-white rounded-full">
-        PURCHASE CONCERT
-      </button>
+          <Link
+            to="/my"
+            className="mt-4 bg-black border transition hover:-translate-y-1 hover:bg-white hover:text-black border-white px-6 py-3 mr-2 text-white rounded-full text-center "
+          >
+            VIEW MY TICKETS
+          </Link>
+        </>
+      ) : (
+        <>
+          <div className="mt-36 mb-36">
+            <div className="flex justify-between">
+              <div>Initial Buyer</div>
+              <div>Alice Buterin</div>
+            </div>
+            <div className="flex justify-between mt-4">
+              <div>Number of Tickets</div>
+              <div className="flex">
+                <button
+                  onClick={() => setTicketCount(ticketCount - 1)}
+                  className="bg-slate-100 w-6 h-6 rounded-full text-black text-center mr-4"
+                >
+                  -
+                </button>
+                <div>{ticketCount}</div>
+                <button
+                  onClick={() => setTicketCount(ticketCount + 1)}
+                  className="bg-slate-100 w-6 h-6 rounded-full text-black text-center ml-4"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={onClickPurchase}
+            className="mt-4 bg-black border transition hover:-translate-y-1 hover:bg-white hover:text-black border-white px-6 py-3 mt-4 mr-2 text-white rounded-full"
+          >
+            PURCHASE CONCERT
+          </button>
+        </>
+      )}
     </div>
   );
 };

@@ -5,15 +5,12 @@ import { useEffect, useState } from "react";
 import KakaoOAuthComponent from "../components/OAuth/KakaoOAuthComponent";
 import OAuthComponent from "../components/OAuth/OAuthComponent";
 
+import taylorImg from "../assets/images/taylor-eras.png";
+import bonjoviImg from "../assets/images/bonjovi.jpeg";
+
 const Home = () => {
   const { userName, setUserName, nftIds, setNftIds, newNft } =
     useOutletContext();
-
-  //로그인 버튼 누르면 카카오톡 오스로 로그인하고 이름 가져와서 userName 상태변수에 저장
-  const onClickAuth = async () => {
-    console.log("kakao auth");
-    //setUserName();에 저장
-  };
 
   //서버에서 내가 소유한 NFT의 array 가져오기
   const getMyNfts = async () => {
@@ -39,33 +36,24 @@ const Home = () => {
             {userName}
           </Link>
         ) : (
-          <button onClick={onClickAuth} className="place-self-end mx-4">
-            Login
-          </button>
+          <KakaoOAuthComponent></KakaoOAuthComponent>
         )}
-        <KakaoOAuthComponent></KakaoOAuthComponent>
         <OAuthComponent></OAuthComponent>
-        {/* <Link className="place-self-end mx-4" to="/my">
-          Login
-        </Link> */}
       </div>
       <div className=" bg-gradient-to-br from-indigo-900 to-purple-900 grow font-bold rounded-t-[36px]  px-4 py-4">
         <div className="text-white mb-4"> UPCOMING CONCERTS</div>
         <div className="">
-          <Link to="/purchase" className="mt-4 flex flex-col">
-            <div className="bg-red-100 h-[240px] rounded-xl relative">
-              {/* <img
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                src={concertImg}
-                alt="taylor swift"
-              /> */}
-            </div>
-          </Link>
           <Link
             to="/purchase"
-            className="bg-white h-36 mt-4 mb-4 px-4 text-7xl flex justify-center items-center rounded-3xl transition hover:-translate-y-1"
+            className="mt-4 flex flex-col transition hover:-translate-y-1"
           >
-            CONCERT2
+            <div className="bg-red-100 h-[240px] rounded-3xl relative">
+              <img
+                className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
+                src={taylorImg}
+                alt="taylor swift"
+              />
+            </div>
           </Link>
         </div>
       </div>
