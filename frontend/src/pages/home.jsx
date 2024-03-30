@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 // import concertImg from "../../public/images/taylor-eras.png";
 import { useEffect, useState } from "react";
+import KakaoOAuthComponent from "../components/OAuth/KakaoOAuthComponent";
+import OAuthComponent from "../components/OAuth/OAuthComponent";
 
 const Home = () => {
   const { userName, setUserName, nftIds, setNftIds, newNft } =
@@ -41,6 +43,11 @@ const Home = () => {
             Login
           </button>
         )}
+        <KakaoOAuthComponent></KakaoOAuthComponent>
+        <OAuthComponent></OAuthComponent>
+        {/* <Link className="place-self-end mx-4" to="/my">
+          Login
+        </Link> */}
       </div>
       <div className=" bg-gradient-to-br from-indigo-900 to-purple-900 grow font-bold rounded-t-[36px]  px-4 py-4">
         <div className="text-white mb-4"> UPCOMING CONCERTS</div>
