@@ -5,15 +5,15 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 const Purchase = () => {
-  const { userName, setUserName, nftIds, setNftIds, newNft } =
-    useOutletContext();
+  const { userName, setUserName, nftIds, setNftIds } = useOutletContext();
 
   const [ticketCount, setTicketCount] = useState(1);
   const [isClicked, setIsClicked] = useState(0);
 
-  //구매하기 눌렀을 때 표 1)소유자인지 검증, 2)최초 구매자인지 검증
+  //구매하기 눌렀을 때 NFT 발행 위한 정보 서버에 보냄(구매자 이름, 수량), 서버에서 토큰id 받아서 NftIds array에 추가
   const onClickPurchase = async () => {
     setIsClicked(1);
+    //setNftIds( );
     console.log("is owner of NFT");
     console.log("is first buyer of NFT");
   };

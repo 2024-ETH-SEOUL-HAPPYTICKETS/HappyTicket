@@ -23,7 +23,7 @@ const My = () => {
           <div className="absolute top-20 left-20 pr-8 pb-8mt-4 bg-black border transition hover:-translate-y-1 hover:bg-white hover:text-black border-white px-6 py-3 mt-4 mr-2 text-white rounded-full">
             Enter Concert
           </div>
-          <div className="absolute right-0 bottom-0 pr-8 pb-8 ">
+          <div className="absolute right-0 bottom-16 pr-8 pb-8 font-bold ">
             <div>is Owner</div>
             <div>is Initial Buyer</div>
           </div>
