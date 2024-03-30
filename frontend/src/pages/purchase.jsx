@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import backImg from "../assets/images/left-arrow.png";
+import axios from "axios";
 
 import concertImg from "../assets/images/taylor-eras.png";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+
+const BackendServer = "http://158.179.169.106:8081";
 
 const Purchase = () => {
   const { userName, setUserName, nftIds, setNftIds } = useOutletContext();
@@ -14,6 +17,28 @@ const Purchase = () => {
   //구매하기 눌렀을 때 NFT 발행 위한 정보 서버에 보냄(구매자 이름, 수량), 서버에서 토큰id 받아서 NftIds array에 추가
   const onClickPurchase = async () => {
     setIsClicked(1);
+    const axiosConfig = {
+      headers: {
+        Authorization: sessionStorage.getItem("accessToken"),
+      },
+    };
+
+    const body = {
+      price: 5690,
+      itemName: "BTS The Tour",
+      count: 2,
+    };
+
+    const response = await axios.post(
+      BackendServer + "/api/v1/payment/ready",
+      body,
+      axiosConfig //header??
+    );
+
+    console.log("response", response);
+
+    //post르ㄹ 하하고
+
     //setNftIds( );
   };
 
