@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import KakaoOAuthComponent from "../components/OAuth/KakaoOAuthComponent";
 
 const Home = () => {
   return (
@@ -7,9 +8,10 @@ const Home = () => {
         <div className=" font-bold place-self-center my-4 text-4xl ">
           HAPPY TICKET
         </div>
-        <Link className="place-self-end mx-4" to="/my">
+        <KakaoOAuthComponent></KakaoOAuthComponent>
+        {/* <Link className="place-self-end mx-4" to="/my">
           Login
-        </Link>
+        </Link> */}
       </div>
       <div className=" bg-gradient-to-br from-indigo-900 to-purple-900 grow font-bold rounded-t-[36px]  px-4 py-4">
         <div className="text-white mb-4"> UPCOMING CONCERTS</div>
