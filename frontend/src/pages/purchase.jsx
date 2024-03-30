@@ -14,8 +14,6 @@ const Purchase = () => {
   const onClickPurchase = async () => {
     setIsClicked(1);
     //setNftIds( );
-    console.log("is owner of NFT");
-    console.log("is first buyer of NFT");
   };
 
   return (
