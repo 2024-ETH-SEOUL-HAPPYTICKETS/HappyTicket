@@ -9,7 +9,7 @@ const KakaoOAuthComponent = () => {
 
   const handleLogin = () => {
     const client_id = `277a841600aba14020ce1835979cd54a`;
-    const redirect_id = "https://localhost:3000/login";
+    const redirect_id = "http://localhost:3000";
     const response_type = "code";
     const KakaoURL = `https://kauth.kakao.com/oauth/authorize?response_type=${response_type}&client_id=${client_id}&redirect_uri=${redirect_id}`
     sessionStorage.setItem("provider","kakao");

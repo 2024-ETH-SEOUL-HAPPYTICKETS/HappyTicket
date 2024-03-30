@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import KakaoOAuthComponent from "../components/OAuth/KakaoOAuthComponent";
+import OAuthComponent from "../components/OAuth/OAuthComponent";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
           HAPPY TICKET
         </div>
         <KakaoOAuthComponent></KakaoOAuthComponent>
+        <OAuthComponent></OAuthComponent>
         {/* <Link className="place-self-end mx-4" to="/my">
           Login
         </Link> */}
