@@ -6,7 +6,7 @@ import concertImg from "../assets/images/taylor-eras.png";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
-const BackendServer = "http://158.179.169.106:8081";
+const BackendServer = "http://localhost:8081";
 
 const Purchase = () => {
   const { userName, setUserName, nftIds, setNftIds } = useOutletContext();

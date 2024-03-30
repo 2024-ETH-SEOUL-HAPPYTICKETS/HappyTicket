@@ -20,7 +20,7 @@ const OAuthComponent = () => {
         })
         .then((resp) => {
           console.log(jwtDecode(resp.data).username);
-          sessionStorage.setItem("accessToken", resp.data);
+          sessionStorage.setItem("accessToken", "Bearer "+resp.data);
           navigate("/");
         })
         .catch((err) => {
