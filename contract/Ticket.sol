@@ -3,19 +3,14 @@ pragma solidity >=0.8.2 <0.9.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "Rendering.sol";
-import "RenderingParams.sol";
+import "Rendering_T.sol";
+import "RenderingParams_T.sol";
 
 contract Ticket is ERC721Enumerable, Ownable {
-    // string metadataURI;
     uint public total;
     string public initial;
     string public email;
 
-    function fill(string memory _initial, string memory _email) public {
-        initial = _initial;
-        email = _email;
-    }
 
     // 콘서트 리스트
     mapping(string => uint) internal concertNum;
@@ -24,15 +19,15 @@ contract Ticket is ERC721Enumerable, Ownable {
     event Entered(uint indexed _tokenId);
 
     // 주최자의 의뢰대로 인풋값 입력, admin = contract 배포자
-    constructor(/*string memory _metadataURI*/) ERC721("HappyTicket", "HTK") Ownable(msg.sender) {
-        /*metadataURI = _metadataURI;*/
-    }
+    constructor() ERC721("HappyTicket", "HTK") Ownable(msg.sender) {}
 
+    function fill(string memory _initial, string memory _email) public {
+        initial = _initial;
+        email = _email;
+    }
+    
     // 콘서트 정보 등록
-    function registerConcert(
-        string memory _musician,
-        uint _concertNum
-    ) external onlyOwner {
+    function registerConcert(string memory _musician, uint _concertNum) external onlyOwner {
         concertNum[_musician] = _concertNum;
     }
 
@@ -53,7 +48,7 @@ contract Ticket is ERC721Enumerable, Ownable {
 
     // Implement tokenURI function using NFTRenderer library to generate JSON metadata
     function tokenURI(uint _tokenId) public view override returns (string memory) {
-        RenderParams memory params = RenderParams({
+        RenderParams_T memory params = RenderParams_T({
             musician: "BTS",
             title: "PERMISSION TO DANCE ON STAGE",
             initial: initial,
@@ -62,6 +57,6 @@ contract Ticket is ERC721Enumerable, Ownable {
             date: "Sunday, May 12, 2024"
         });
 
-        return NFTRenderer.render(params);
+        return NFTRenderer_T.render(params);
     }
 }
