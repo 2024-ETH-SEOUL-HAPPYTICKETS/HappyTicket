@@ -6,6 +6,7 @@ import KakaoOAuthComponent from "../components/OAuth/KakaoOAuthComponent";
 import OAuthComponent from "../components/OAuth/OAuthComponent";
 import jwtDecode from "jwt-decode";
 import search from "../assets/images/search.png";
+import ticketImg from "../assets/images/movies.png"
 
 import taylorImg from "../assets/images/taylor-eras.png";
 import bonjoviImg from "../assets/images/bonjovi.jpeg";
@@ -42,8 +43,10 @@ const Home = () => {
     <div className="bg-black w-[480px] h-screen mx-auto flex flex-col">
       <OAuthComponent></OAuthComponent>
       <div className="h-[240px] flex flex-col text-white">
-        <div className=" font-bold place-self-center my-4 text-[48px]">
-          HAPPY TICKET
+        <div className=" font-bold place-self-center my-4 text-[40px] flex justify-center items-center">
+          <p>HAPPY</p>
+          <img src={ticketImg} className="w-16 h-16 mx-4"></img>
+          <p>Ticket</p>
         </div>
         <div className="w-full h-0.5 bg-white mb-7"></div>
         <div className="flex justify-between">
