@@ -1,0 +1,27 @@
+{
+  "name": "BTS",
+  "description": "BTS PERMISSION TO DANCE ON STAGE",
+  "image": "https://red-holy-whippet-722.mypinata.cloud/ipfs/QmVyp7AQddLnAUZupU84Sgyz3VTYyLXQkmpURd7sfrXU8d",
+  "attributes": [
+    {
+      "trait_type": "Title",
+      "value": "PERMISSION TO DANCE ON STAGE"
+    },
+    {
+      "trait_type": "Name",
+      "value": "Alice"
+    },
+    {
+      "trait_type": "Email",
+      "value": "alice@dream.chain"
+    },
+    {
+      "trait_type": "Location",
+      "value": "Seoul Olympic Main Stadium"
+    },
+    {
+      "trait_type": "Date",
+      "value": "Sunday, May 12, 2024"
+    }
+  ]
+}
