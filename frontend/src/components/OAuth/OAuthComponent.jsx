@@ -3,7 +3,7 @@ import jwtDecode from "jwt-decode";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BackendServer = "http://localhost:8081";
+const BackendServer = "http://158.179.169.106:8081";
 
 const OAuthComponent = () => {
   const navigate = useNavigate();
@@ -19,18 +19,19 @@ const OAuthComponent = () => {
           kakaoCode: credentailcode,
         })
         .then((resp) => {
+          console.log(jwtDecode(resp.data).username);
           sessionStorage.setItem("accessToken", resp.data);
           navigate("/");
         })
         .catch((err) => {
           console.log(err);
           navigate("/");
-          alert("로그인 실패")
+          alert("로그인 실패");
         });
-    } 
+    }
   }, []);
 
-  return <></>
+  return <></>;
 };
 
 export default OAuthComponent;

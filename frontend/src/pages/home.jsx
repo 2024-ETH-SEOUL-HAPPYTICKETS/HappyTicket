@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 import KakaoOAuthComponent from "../components/OAuth/KakaoOAuthComponent";
 import OAuthComponent from "../components/OAuth/OAuthComponent";
+import jwtDecode from "jwt-decode";
 
 import taylorImg from "../assets/images/taylor-eras.png";
 import bonjoviImg from "../assets/images/bonjovi.jpeg";
@@ -31,9 +32,9 @@ const Home = () => {
         <div className=" font-bold place-self-center my-4 text-4xl ">
           HAPPY TICKET
         </div>
-        {userName ? (
+        {sessionStorage.getItem("accessToken") ? (
           <Link className="place-self-end mx-4" to="/my">
-            {userName}
+            {jwtDecode(sessionStorage.getItem("accessToken")).userName}
           </Link>
         ) : (
           <KakaoOAuthComponent></KakaoOAuthComponent>
