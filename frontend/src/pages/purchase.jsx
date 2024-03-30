@@ -5,6 +5,7 @@ import axios from "axios";
 import concertImg from "../assets/images/taylor-eras.png";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import PaymentComponents from "../components/payment/PaymentComponents";
 
 const BackendServer = "http://localhost:8081";
 
@@ -83,17 +84,21 @@ const Purchase = () => {
               <div>Alice Buterin</div>
             </div>
             <div className="flex justify-between mt-4">
-              <div>Number of Tickets</div>
+              <div>Number of Tickets(Max:2)</div>
               <div className="flex">
                 <button
-                  onClick={() => setTicketCount(ticketCount - 1)}
+                  onClick={() => {
+                    if(ticketCount>1)
+                    setTicketCount(ticketCount - 1)}}
                   className="bg-slate-100 w-6 h-6 rounded-full text-black text-center mr-4"
                 >
                   -
                 </button>
                 <div>{ticketCount}</div>
                 <button
-                  onClick={() => setTicketCount(ticketCount + 1)}
+                  onClick={() => {
+                    if(ticketCount<2)
+                    setTicketCount(ticketCount + 1)}}
                   className="bg-slate-100 w-6 h-6 rounded-full text-black text-center ml-4"
                 >
                   +
@@ -101,12 +106,7 @@ const Purchase = () => {
               </div>
             </div>
           </div>
-          <button
-            onClick={onClickPurchase}
-            className="mt-4 bg-black border transition hover:-translate-y-1 hover:bg-white hover:text-black border-white px-6 py-3 mt-4 mr-2 text-white rounded-full"
-          >
-            PURCHASE CONCERT
-          </button>
+          <PaymentComponents amount={ticketCount}></PaymentComponents>
         </>
       )}
     </div>
