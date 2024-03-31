@@ -42,7 +42,7 @@ const My = () => {
         Authorization: sessionStorage.getItem("accessToken"),
       },
     };
-    axios.post(BackendServer+'/api/v1/ticket/check', {id} , axiosConfig)
+    axios.post(BackendServer+'/api/v1/tickets/check', {id} , axiosConfig)
     .then((resp)=>{
       alert('Enjoy your Time!')
     })
