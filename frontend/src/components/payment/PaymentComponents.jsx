@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-const BackendServer = "http://localhost:8081";
+const BackendServer = "http://158.179.169.106:8081";
 
 const PaymentComponents = ({ amount }) => {
   useEffect(() => {
@@ -41,7 +41,11 @@ const PaymentComponents = ({ amount }) => {
       },
       async (resp) => {
         if(resp.success){
-            axios.get(BackendServer+'/api/v1/payment/'+resp.imp_uid)
+            axios.get(BackendServer+'/api/v1/payment/'+resp.imp_uid,{
+                headers: {
+                    'Authorization': sessionStorage.getItem('accessToken')
+                }
+            })
             .then((resp)=>{
                 console.log(resp);
             }).catch((error)=>{

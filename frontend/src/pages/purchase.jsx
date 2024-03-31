@@ -1,19 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import backImg from "../assets/images/left-arrow.png";
 import axios from "axios";
+import BTS from "../assets/images/BTS.png";
 
-import concertImg from "../assets/images/taylor-eras.png";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import PaymentComponents from "../components/payment/PaymentComponents";
+import jwtDecode from "jwt-decode";
 
-const BackendServer = "http://localhost:8081";
+const BackendServer = "http://158.179.169.106:8081";
 
 const Purchase = () => {
+  const navigate = useNavigate();
   const { userName, setUserName, nftIds, setNftIds } = useOutletContext();
 
   const [ticketCount, setTicketCount] = useState(1);
   const [isClicked, setIsClicked] = useState(0);
+  const [username, setUsername] = useState('');
+
+  useEffect(()=>{
+    if(!sessionStorage.getItem('accessToken')){
+      navigate('/');
+      alert('Need To Login First');
+    }else {
+      setUsername(sessionStorage.getItem('accessToken') && jwtDecode(sessionStorage.getItem('accessToken')).usename);
+    }
+  },[])
 
   //구매하기 눌렀을 때 NFT 발행 위한 정보 서버에 보냄(구매자 이름, 수량), 서버에서 토큰id 받아서 NftIds array에 추가
   const onClickPurchase = async () => {
@@ -53,19 +66,19 @@ const Purchase = () => {
         <div className="bg-red-100 h-[240px] rounded-3xl relative">
           <img
             className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
-            src={concertImg}
+            src={BTS}
             alt="taylor swift"
           />
         </div>
         <div className="mt-4 place-self-center text-3xl">
-          Taylor Swift The Eras Tour
+          BTS - Permission to Dance
         </div>
       </div>
       {isClicked == 1 ? (
         <>
           <div className="mt-36 mb-36">
             <div className="flex justify-between">
-              <div>{userName}</div>
+              <div>{username}</div>
               <div>purchased {ticketCount} ticket(s) successful</div>
             </div>
           </div>
@@ -81,7 +94,7 @@ const Purchase = () => {
           <div className="mt-36 mb-36">
             <div className="flex justify-between">
               <div>Initial Buyer</div>
-              <div>Alice Buterin</div>
+              <div>{username}</div>
             </div>
             <div className="flex justify-between mt-4">
               <div>Number of Tickets(Max:2)</div>
