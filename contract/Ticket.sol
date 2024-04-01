@@ -11,24 +11,15 @@ contract Ticket is ERC721Enumerable, Ownable {
     string public initial;
     string public email;
 
-
-    // 콘서트 리스트
-    mapping(string => uint) internal concertNum;
-
     // 입장 이벤트
     event Entered(uint indexed _tokenId);
 
-    // 주최자의 의뢰대로 인풋값 입력, admin = contract 배포자
     constructor() ERC721("HappyTicket", "HTK") Ownable(msg.sender) {}
 
+    // 초기 구매자 등록
     function fill(string memory _initial, string memory _email) public {
         initial = _initial;
         email = _email;
-    }
-    
-    // 콘서트 정보 등록
-    function registerConcert(string memory _musician, uint _concertNum) external onlyOwner {
-        concertNum[_musician] = _concertNum;
     }
 
     // 티켓 발급
@@ -39,14 +30,12 @@ contract Ticket is ERC721Enumerable, Ownable {
     }
 
     // 입장
-    function enter(uint _tokenId, uint _time) external onlyOwner {
-        require(block.timestamp < _time, "Time over to enter");
-        require(_time < block.timestamp + 30 minutes, "Not yet to enter");
+    function enter(uint _tokenId) external onlyOwner {
         emit Entered(_tokenId);
         _burn(_tokenId);
     }
 
-    // Implement tokenURI function using NFTRenderer library to generate JSON metadata
+    // NFT Renderer library 사용하여 메타데이터 생성
     function tokenURI(uint _tokenId) public view override returns (string memory) {
         RenderParams_T memory params = RenderParams_T({
             musician: "BTS",
