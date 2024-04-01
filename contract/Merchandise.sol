@@ -18,7 +18,7 @@ contract Merchandise is ERC721Enumerable, Ownable {
         _mint(_addr, _tokenId);
     }
 
-    // 백에서 input값 받아서 최초구매자 상태 업데이트 기능
+    // 백엔드에서 input값 받아서 최초구매자 상태 업데이트 기능
     // _tokenId가 input값이기 때문에 민팅이 먼저 실행돼야 함
     function isFirst(uint _tokenId, bool _isFirst) external onlyOwner {
         isFirstOwner[_tokenId] = _isFirst;
