@@ -27,7 +27,7 @@ web3.j
 
 # 💻📱 How to Use
 
-- **url:** TBD
+- **[URL](https://happy-ticket.vercel.app)**
 - **[Youtube](https://www.youtube.com/watch?v=Ra2wWcSK-SU)**
 - **Testnet:** Supports Sepolia, Neon EVM Devnet
 
