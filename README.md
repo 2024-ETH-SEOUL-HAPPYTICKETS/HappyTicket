@@ -21,14 +21,14 @@ web3.j
 
 # 👩‍💻👨‍💻 Developer Introduction
 
-- **KeonRyong Cheong:** Backend Developer
-- **Sechang Choi:** Smart Contract Developer
-- **Yura Huh:** Frontend Developer
+- **[KeonRyong Cheong](https://github.com/GRyu1):** Backend Developer
+- **[Sechang Choi](https://github.com/sepang2):** Smart Contract Developer
+- **[Yura Huh](https://github.com/yurright):** Frontend Developer
 
 # 💻📱 How to Use
 
 - **url:** TBD
-- **Youtube:** [Link](https://www.youtube.com/watch?v=Ra2wWcSK-SU)
+- **[Youtube](https://www.youtube.com/watch?v=Ra2wWcSK-SU)**
 - **Testnet:** Supports Sepolia, Neon EVM Devnet
 
 # 🔐💎 The Problem and Our Solution:
