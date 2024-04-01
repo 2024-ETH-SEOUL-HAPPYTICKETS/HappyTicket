@@ -1,17 +1,17 @@
-# 🛠 2024 ETH Seoul: HappyTicket
+# 🛠 2024 ETH Seoul: Happy Ticket
 
 - Hackathon from March 29, 2024 to March 31, 2024
 - Presentation and evaluation on March 31, 2024
 
-# 🎪 HAPPY Ticket DESCRIPTION
+# 🎪 HAPPY TICKET DESCRIPTION
 
 <p align="center">
-<img width="600" alt="image" src="https://github.com/yurright/happyTicket/blob/main/cover.png">
+<img width="600" alt="image" src="https://github.com/2024-ETH-SEOUL-HAPPYTICKETS/HappyTicket/assets/95029317/dd17b272-a54a-4007-a3c0-6052d3f7ef06">
 </p>
 
 Happy Ticket is a NFT ticketing service that uses blockchain to mitigate ticket scalping problems while using a non-crypto user friendly approach.
 
-# 🎪 HAPPY Ticket SKILLS
+# 🎪 HAPPY TICKET SKILLS
 
 solidity
 neon
