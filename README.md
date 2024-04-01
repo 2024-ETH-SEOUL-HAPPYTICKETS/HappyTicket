@@ -3,7 +3,7 @@
 - Hackathon from March 29, 2024 to March 31, 2024
 - Presentation and evaluation on March 31, 2024
 
-# 🎪 HAPPY WALLET DESCRIPTION
+# 🎪 HAPPY Ticket DESCRIPTION
 
 <p align="center">
 <img width="600" alt="image" src="https://github.com/yurright/happyTicket/blob/main/cover.png">
@@ -11,7 +11,7 @@
 
 Happy Ticket is a NFT ticketing service that uses blockchain to mitigate ticket scalping problems while using a non-crypto user friendly approach.
 
-# 🎪 HAPPY WALLET SKILLS
+# 🎪 HAPPY Ticket SKILLS
 
 solidity
 neon
@@ -28,8 +28,8 @@ web3.j
 # 💻📱 How to Use
 
 - **url:** TBD
-- **youtube:** TBD
-- **Testnet:** Supports Sepolia, Goerli
+- **Youtube:** [Link](https://www.youtube.com/watch?v=Ra2wWcSK-SU)
+- **Testnet:** Supports Sepolia, Neon EVM Devnet
 
 # 🔐💎 The Problem and Our Solution:
 
